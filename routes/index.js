@@ -62,7 +62,7 @@ router.post('/save', function(req, res) {
 		if (err) {
 			res.send("there was a problem adding the annotation");
 		} else {
-			//res.redirect("/");
+			res.redirect("/annotate");
 		}
 	});
 });
