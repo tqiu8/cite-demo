@@ -158,28 +158,25 @@
           return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
         }
         %>
-
-        <%console.log(beginning)%>
-        <%console.log(ending)%>
-        <% for (var i =beginning; i<=ending; i++) { %>
-             
-       
-        <div class = "col-sm-6">
-            <% console.log('hi') %>
-            <% var name = pad(i,4) %>
-            <% console.log('name', name) %>
-            <% var src = "/public/images/photos/"+ name + ".jpg"%>
-            <img class="annotatable" id = "<%= name %>" src = "<%= src %>" style="width:100%; height:auto; margin:10px;" onclick="triggerModal(this)"></>
-            
-            <center><h3>
-                <form id="<%= name %>-form" name="save" action="/save" method="post" onsubmit="saveServer(this)">
-                    <input type="hidden" id="anno" name="annotation">
-                    <input type="hidden" id="img" name="img">
-                   <button style="margin-top:-20px;" class="btn btn-primary" type="submit">Save image to server</button>
-                </form>
-            </h3></center>
-        </div>
-         <% } %>
+        
+        <% for (var i =beginning; i<=ending; i++) { %> 
+            <% console.log(i); %>
+            <div class ="col-sm-6">
+                <% var name = pad(i,4); %>
+                <% var src = "public/images/photos/" + name + ".jpg"; %>
+                <% console.log(src); %>
+                <img class="annotatable" id="<%= name %>" src="<%= src %>" style="width:100%; height: auto; margin:10px;"></>
+                <center><h3>
+                    <form id="<%= name %>-form" name="save" action="/save" method="post" onsubmit="saveServer(this)">
+                        <input type="hidden" id="anno" name="annotation">
+                        <input type="hidden" id="img" name="img">
+                       <button style="margin-top:-20px;" class="btn btn-primary" type="submit">Save image to server</button>
+                    </form>
+                </h3></center>
+            </div>
+        <% } %>
+         
+         
 
         
     </div>
