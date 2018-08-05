@@ -151,17 +151,16 @@
 
         <!-- Projects Row -->
         <div class="row top-buffer">
-        <%
-        function pad(n, width, z) {
-          z = z || '0';
-          n = n + '';
-          return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
-        }
-        %>
-        
-        <% for (var i =beginning; i<=ending; i++) { %> 
-            <% console.log(i); %>
-            <div class ="col-sm-6">
+        <%function pad(n, width, z) { %>
+          <% z = z || '0'; %>
+          <% n = n + ''; %>
+          <% return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n; %>
+        <% }; %>
+
+		<% var beginning = parseInt(beginning); %>
+		<% var ending = parseInt(ending) %>
+		<% for (var i =beginning; i <= ending; i++) { %>
+			<div class ="col-sm-6">
                 <% var name = pad(i,4); %>
                 <% var src = "public/images/photos/" + name + ".jpg"; %>
                 <% console.log(src); %>
@@ -174,7 +173,8 @@
                     </form>
                 </h3></center>
             </div>
-        <% }; %>
+		<% } %> 
+				
          
          
 
@@ -206,3 +206,4 @@
 </body>
 
 </html>
+
