@@ -171,33 +171,6 @@
         <!-- /.row -->
 
         <!-- Projects Row -->
-        <div class="row top-buffer">
-            <div class="col-sm-8 col-sm-offset-2 portfolio-item">
-                <div class="col-sm-4">
-                    <h3>
-                        <label class="btn btn-primary">
-                            Upload image<input id="photo-input" type="file" name="photo" onchange="readURL(this);" style="display: none;">
-                        </label>
-                    </h3>
-                </div>
-                <div class="col-sm-4">
-                    <h3>
-                        <a href="#" class="btn btn-primary" onclick="downloadImg(this)" download>Save image to disk</a>
-                    </h3>
-                </div>
-                <div class="col-sm-4">
-                    <h3>
-                        
-                        <form name="save" action="/save" method="post" onsubmit="saveServer(this)">
-                            <input type="hidden" id="anno" name="annotation">
-                            <input type="hidden" id="img" name="img">
-                           <button class="btn btn-primary" type="submit">Save image to server</a>
-                        </form>
-                    </h3>
-                </div>
-                
-           
-        </div>
         <%
         function pad(n, width, z) {
           z = z || '0';
