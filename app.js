@@ -28,6 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/public/images", express.static(__dirname + '/public/images'))
 app.use("/public/images/photos", express.static(__dirname + '/public/images/photos'))
 app.use("/public/images/predictions", express.static(__dirname + '/public/images/predictions'))
 app.use(function(req,res,next){
