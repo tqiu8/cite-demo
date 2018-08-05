@@ -164,7 +164,7 @@
             <div class="col-lg-12">
                 <center><h1 class="page-header">View the results!
                 </h1>
-                <p>Click on each image to view our network's predictions on the images you annotated</p>
+                <p>View the network's predictions on the images you annotated. Predictions can take several minutes, so refresh the page until you see the results.</p>
                 </center>
             </div>
         </div>
@@ -179,7 +179,7 @@
         }
         %>
 
-        <% for (var i =0; i<images.length; i++) {%>
+        <% for (var i =images.length-1; i>=0; i--) {%>
         <div class="modal-container">
         <div class="row">
             <div class = "col-sm-8">
