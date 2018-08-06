@@ -157,13 +157,12 @@
           <% return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n; %>
         <% }; %>
 
-		<% var beginning = parseInt(beginning); %>
-		<% var ending = parseInt(ending) %>
-		<% for (var i =beginning; i <= ending; i++) { %>
-			<div class ="col-sm-6">
-                <% var name = pad(i,4); %>
+        <div class ="col-sm-8 col-sm-offset-2 portfolio-item">
+                <% var name = pad(beginning,4); %>
                 <% var src = "public/images/photos/" + name + ".jpg"; %>
-                <% console.log(src); %>
+                <% var beginning = parseInt(beginning); %>
+                <% var ending = parseInt(ending); %>
+                <% console.log(beginning); %>
                 <img class="annotatable" id="<%= name %>" src="<%= src %>" style="width:100%; height: auto; margin:10px;"></>
                 <center><h3>
                     <form id="<%= name %>-form" name="save" action="/save" method="post" onsubmit="saveServer(this)">
@@ -171,10 +170,17 @@
                         <input type="hidden" id="img" name="img">
                        <button style="margin-top:-20px;" class="btn btn-primary" type="submit">Save image to server</button>
                     </form>
+                    <% if (beginning < ending) {%>
+                    	<% beginning = beginning +1; %>
+                    	<form action="/annotate" method = "post" name="range">
+                        <input type="hidden" name="beginning" value="<%= beginning %>"> 
+                        <input type="hidden" name="ending" value="<%= ending %>">
+                    	<button class="btn btn-primary" style="margin-top:10px" type="submit">Next image</button>
+                    </form>
+                    <% } %>
+                    
                 </h3></center>
-            </div>
-		<% } %> 
-				
+        </div>
          
          
 
