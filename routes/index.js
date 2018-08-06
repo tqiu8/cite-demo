@@ -52,6 +52,9 @@ router.post('/save', function(req, res) {
 	var db = req.db;
 	var annotation = req.body.annotation;
 	var img = req.body.img;
+	var begin = req.body.next;
+	var end= req.body.ending;
+
 	console.log(req.body)
 	var collection = db.get('annotations');
 	console.log('img', img)
@@ -62,6 +65,11 @@ router.post('/save', function(req, res) {
 		if (err) {
 			res.send("there was a problem adding the annotation");
 		} else {
+			if (begin < end) {
+				res.render('annotate', {beginning: begin, ending: end})
+			} else {
+				res.redirect('test')
+			}
 		}
 	});
 });

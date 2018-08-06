@@ -162,22 +162,18 @@
                 <% var src = "public/images/photos/" + name + ".jpg"; %>
                 <% var beginning = parseInt(beginning); %>
                 <% var ending = parseInt(ending); %>
+                <% var next = beginning + 1; %>
                 <% console.log(beginning); %>
                 <img class="annotatable" id="<%= name %>" src="<%= src %>" style="width:100%; height: auto; margin:10px;"></>
                 <center><h3>
                     <form id="<%= name %>-form" name="save" action="/save" method="post" onsubmit="saveServer(this)">
                         <input type="hidden" id="anno" name="annotation">
                         <input type="hidden" id="img" name="img">
+                        <input type="hidden" name="next" value="<%= next %>">
+                        <input type="hidden" name="ending" value="<%= ending %>">
                        <button style="margin-top:-20px;" class="btn btn-primary" type="submit">Save image to server</button>
                     </form>
-                    <% if (beginning < ending) {%>
-                    	<% beginning = beginning +1; %>
-                    	<form action="/annotate" method = "post" name="range">
-                        <input type="hidden" name="beginning" value="<%= beginning %>"> 
-                        <input type="hidden" name="ending" value="<%= ending %>">
-                    	<button class="btn btn-primary" style="margin-top:10px" type="submit">Next image</button>
-                    </form>
-                    <% } %>
+                   
                     
                 </h3></center>
         </div>
