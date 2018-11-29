@@ -7,7 +7,7 @@ var multer = require('multer');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('tammyqiu:1211997tq@ds239681.mlab.com:39681/cite-annotation');
+var db = monk(DB);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
